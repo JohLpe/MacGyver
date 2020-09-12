@@ -3,7 +3,7 @@ from hero import Hero
 from enemy import Enemy
 from walls import Walls
 from floor import Floor
-# from items import Items
+from items import Items
 
 class Game:
     """Class importing elements from other classes for the game to work"""
@@ -15,7 +15,7 @@ class Game:
         self.enemy = Enemy()
         self.walls = Walls()
         self.floor = Floor()
-        # self.tube = Items('ressource/tube.png')
-        # self.needle = Items('ressource/needle.png')
-        # self.ether = Items('ressource/ether.png')
-        # self.syringe = Items('ressource/syringe.png')
+        self.tube = Items(pygame.image.load('ressource/tube.png'), )
+        self.needle = Items(pygame.image.load('ressource/needle.png'))
+        self.ether = Items(pygame.image.load('ressource/ether.png'))
+        # self.syringe = Items(pygame.image.load('ressource/syringe.png'))

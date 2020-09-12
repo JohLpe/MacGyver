@@ -13,15 +13,13 @@ class Items:
     MAX_TILE_AXIS_Y = 600
     AXIS_Y_INTERVAL = 40
 
-    FLOOR = Floor.defineFloorTiles()
+
 
     def __init__(self, image):
 
+        FLOOR = Floor.defineFloorTiles()
+        I = random.randrange(0, len(FLOOR))
+
         self.image = image
+        self.placement = FLOOR[I]
         self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
-    
-    @classmethod
-    def randomPlacement(cls):
-        pass

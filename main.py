@@ -17,9 +17,12 @@ while playable:
     # main game code
     
     board.blit(background, (0, 0))
-    board.blit(inventory, (260, 567))
-    board.blit(game.hero.image, game.hero.rect)
+    board.blit(inventory, (230, 562))
     board.blit(game.enemy.image, game.enemy.rect)
+    board.blit(game.tube.image, game.tube.placement)
+    board.blit(game.needle.image, game.needle.placement)
+    board.blit(game.ether.image, game.ether.placement)
+    board.blit(game.hero.image, game.hero.rect)
 
     pygame.display.flip()
 
