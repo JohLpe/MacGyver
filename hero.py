@@ -15,16 +15,18 @@ class Hero(pygame.sprite.Sprite):
 
     def move_right(self):
         self.rect.x += self.step
-        self.rect.y = self.rect.y
 
     def move_left(self):
         self.rect.x -= self.step
-        self.rect.y = self.rect.y
 
     def move_up(self):
         self.rect.y -= self.step
-        self.rect.x = self.rect.x
 
     def move_down(self):
         self.rect.y += self.step
-        self.rect.x = self.rect.x
+    
+    def downStairs(self):
+        if self.rect.x == 120 and self.rect.y == 520:
+            print("I won't escape this place if I go back this way.")
+        else:
+            pass

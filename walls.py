@@ -2,7 +2,7 @@ import pygame
 
 
 class Walls:
-    """Class defining the game board"""
+    """Class defining the tiles the hero cannot walk on"""
 
     TILES = []
     MIN_TILE_AXIS_X = 0
