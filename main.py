@@ -4,7 +4,7 @@ from game import Game
 pygame.init()
 
 pygame.display.set_caption("MacGyver Escape")
-board = pygame.display.set_mode((600,600))
+board = pygame.display.set_mode((600, 600))
 
 background = pygame.image.load('ressource/background.png')
 inventory = pygame.image.load('ressource/inventory.png')
@@ -15,7 +15,7 @@ playable = True
 
 while playable:
     # main game code
-    
+
     board.blit(background, (0, 0))
     board.blit(inventory, (230, 562))
     board.blit(game.enemy.image, game.enemy.rect)
@@ -55,11 +55,11 @@ while playable:
                 if moveTuple in game.floor.defineFloorTiles():
                     game.hero.move_up()
                     game.grabItem()
-                    game.makeSyringe()          
+                    game.makeSyringe()
             elif event.key == pygame.K_DOWN:
                 move = game.hero.rect.y + game.hero.step
                 moveTuple = (game.hero.rect.x, move)
-                if moveTuple in game.floor.defineFloorTiles():                 
+                if moveTuple in game.floor.defineFloorTiles():
                     game.hero.move_down()
                     game.grabItem()
                     game.makeSyringe()

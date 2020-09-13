@@ -1,5 +1,6 @@
 import pygame
 
+
 class Enemy(pygame.sprite.Sprite):
     """Class defining the enemy's attributes"""
 

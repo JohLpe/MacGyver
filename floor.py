@@ -1,6 +1,7 @@
 import pygame
 from walls import Walls
 
+
 class Floor:
     """Class defining tiles the hero can walk on"""
 
@@ -22,7 +23,6 @@ class Floor:
         self.tileAxisYStart = 0
         self.tileAxisXEnd = 40
         self.tileAxisYEnd = 40
-
 
     @classmethod
     def defineFloorTiles(cls):
