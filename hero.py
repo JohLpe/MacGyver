@@ -12,21 +12,24 @@ class Hero(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 80
         self.rect.y = 520
+        self.placement = (self.rect.x, self.rect.y)
 
     def move_right(self):
         self.rect.x += self.step
+        self.rect.y = self.rect.y
+        self.placement = (self.rect.x, self.rect.y)
 
     def move_left(self):
         self.rect.x -= self.step
+        self.rect.y = self.rect.y
+        self.placement = (self.rect.x, self.rect.y)
 
     def move_up(self):
         self.rect.y -= self.step
+        self.rect.x = self.rect.x
+        self.placement = (self.rect.x, self.rect.y)
 
     def move_down(self):
         self.rect.y += self.step
-    
-    def downStairs(self):
-        if self.rect.x == 120 and self.rect.y == 520:
-            print("I won't escape this place if I go back this way.")
-        else:
-            pass
+        self.rect.x = self.rect.x
+        self.placement = (self.rect.x, self.rect.y)

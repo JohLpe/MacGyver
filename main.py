@@ -22,6 +22,7 @@ while playable:
     board.blit(game.tube.image, game.tube.placement)
     board.blit(game.needle.image, game.needle.placement)
     board.blit(game.ether.image, game.ether.placement)
+    board.blit(game.syringe.image, game.syringe.placement)
     board.blit(game.hero.image, game.hero.rect)
 
     pygame.display.flip()
@@ -39,21 +40,28 @@ while playable:
                 moveTuple = (move, game.hero.rect.y)
                 if moveTuple in game.floor.defineFloorTiles():
                     game.hero.move_right()
-                    game.hero.downStairs()
+                    game.grabItem()
+                    game.makeSyringe()
             elif event.key == pygame.K_LEFT:
                 move = game.hero.rect.x - game.hero.step
                 moveTuple = (move, game.hero.rect.y)
                 if moveTuple in game.floor.defineFloorTiles():
                     game.hero.move_left()
+                    game.grabItem()
+                    game.makeSyringe()
             elif event.key == pygame.K_UP:
                 move = game.hero.rect.y - game.hero.step
                 moveTuple = (game.hero.rect.x, move)
                 if moveTuple in game.floor.defineFloorTiles():
-                    game.hero.move_up()               
+                    game.hero.move_up()
+                    game.grabItem()
+                    game.makeSyringe()          
             elif event.key == pygame.K_DOWN:
                 move = game.hero.rect.y + game.hero.step
                 moveTuple = (game.hero.rect.x, move)
                 if moveTuple in game.floor.defineFloorTiles():                 
                     game.hero.move_down()
+                    game.grabItem()
+                    game.makeSyringe()
             else:
                 pass

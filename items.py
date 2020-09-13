@@ -22,7 +22,6 @@ class Items:
         for element in REMOVAL_LIST:
             if element in FLOOR:
                 FLOOR.remove(element)
-        print(len(FLOOR))
         I = random.randrange(0, len(FLOOR))
 
         self.image = image
