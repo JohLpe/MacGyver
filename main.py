@@ -42,6 +42,7 @@ while playable:
                     game.hero.move_right()
                     game.grabItem()
                     game.makeSyringe()
+                    game.stab()
             elif event.key == pygame.K_LEFT:
                 move = game.hero.rect.x - game.hero.step
                 moveTuple = (move, game.hero.rect.y)
@@ -49,6 +50,7 @@ while playable:
                     game.hero.move_left()
                     game.grabItem()
                     game.makeSyringe()
+                    game.stab()
             elif event.key == pygame.K_UP:
                 move = game.hero.rect.y - game.hero.step
                 moveTuple = (game.hero.rect.x, move)
@@ -56,6 +58,7 @@ while playable:
                     game.hero.move_up()
                     game.grabItem()
                     game.makeSyringe()
+                    game.stab()
             elif event.key == pygame.K_DOWN:
                 move = game.hero.rect.y + game.hero.step
                 moveTuple = (game.hero.rect.x, move)
@@ -63,5 +66,6 @@ while playable:
                     game.hero.move_down()
                     game.grabItem()
                     game.makeSyringe()
+                    game.stab()
             else:
                 pass

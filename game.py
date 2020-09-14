@@ -46,3 +46,15 @@ class Game:
             self.ether.image = pygame.image.load('ressource/emptysquare.png')
             self.syringe.image = pygame.image.load('ressource/syringe.png')
             self.syringe.placement = (370, 561)
+
+    def stab(self):
+
+        guardianNearbyTiles = [(440, 40), (480, 80)]
+
+        if self.hero.placement in guardianNearbyTiles:
+            if self.syringe.placement == (370, 561):
+                self.enemy.image = pygame.image.load('ressource/emptysquare.png')
+            elif self.syringe.placement != (370, 561):
+                pygame.quit()
+        else:
+            pass
