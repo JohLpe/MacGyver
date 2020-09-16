@@ -49,7 +49,7 @@ class Game:
             self.syringe.image = pygame.image.load('ressource/syringe.png')
             self.syringe.placement = (370, 561)
 
-    def stab(self, board, running):
+    def stab(self, board, playable):
 
         guardianNearbyTiles = [(440, 40), (480, 80)]
 
@@ -60,7 +60,7 @@ class Game:
                 board.blit(self.gameover, (0, 0))
                 pygame.display.update()
                 pygame.time.wait(1500)
-                running == False
+                playable == False
                 pygame.quit()
         else:
             pass

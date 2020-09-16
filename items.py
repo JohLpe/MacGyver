@@ -24,5 +24,5 @@ class Items:
         I = random.randrange(0, len(FLOOR))
 
         self.image = image
-        self.placement = FLOOR[I]
+        self.placement = FLOOR.pop(I)
         self.rect = self.image.get_rect()
