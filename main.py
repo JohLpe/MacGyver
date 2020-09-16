@@ -14,7 +14,7 @@ game = Game()
 playable = True
 
 while playable:
-    # main game code
+    """loop to make the game work"""
 
     board.blit(background, (0, 0))
     board.blit(inventory, (230, 562))
@@ -28,10 +28,9 @@ while playable:
     pygame.display.flip()
 
     for event in pygame.event.get():
-        # list of events to end the game loop
 
         if event.type == pygame.QUIT:
-            running = False
+            playable = False
             pygame.quit()
 
         elif event.type == pygame.KEYDOWN:
@@ -42,7 +41,8 @@ while playable:
                     game.hero.move_right()
                     game.grabItem()
                     game.makeSyringe()
-                    game.stab()
+                    game.stab(board, playable)
+                    game.win(board, playable)
             elif event.key == pygame.K_LEFT:
                 move = game.hero.rect.x - game.hero.step
                 moveTuple = (move, game.hero.rect.y)
@@ -50,7 +50,6 @@ while playable:
                     game.hero.move_left()
                     game.grabItem()
                     game.makeSyringe()
-                    game.stab()
             elif event.key == pygame.K_UP:
                 move = game.hero.rect.y - game.hero.step
                 moveTuple = (game.hero.rect.x, move)
@@ -58,7 +57,7 @@ while playable:
                     game.hero.move_up()
                     game.grabItem()
                     game.makeSyringe()
-                    game.stab()
+                    game.stab(board, playable)
             elif event.key == pygame.K_DOWN:
                 move = game.hero.rect.y + game.hero.step
                 moveTuple = (game.hero.rect.x, move)
@@ -66,6 +65,5 @@ while playable:
                     game.hero.move_down()
                     game.grabItem()
                     game.makeSyringe()
-                    game.stab()
             else:
                 pass
