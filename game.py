@@ -1,5 +1,6 @@
 import pygame
 import sys
+import random
 from hero import Hero
 from enemy import Enemy
 from walls import Walls
@@ -23,6 +24,24 @@ class Game:
         self.syringe = Items(pygame.image.load('ressource/emptysquare.png'))
         self.gameover = pygame.image.load('ressource/gameover.png')
         self.escape = pygame.image.load('ressource/escape.png')
+
+    def verifyItemsPlacement(self):
+        itemsPlacementList = [self.tube.placement, self.needle.placement, self.ether.placement]
+        itemsPlacementList = list(set(itemsPlacementList))
+        if len(itemsPlacementList) == 3:
+            pass
+        while len(itemsPlacementList) != 3:
+            floorList = self.floor.defineFloorTiles()
+            removalList = [(80, 520), (120, 520), (440, 40), (480, 40), (520, 40), (480, 80)]
+            for tile in floorList:
+                if tile in removalList:
+                    floorList.remove(tile)
+            I = random.randrange(floorList)
+            self.tube.placement = floorList[I]
+            self.needle.placement = floorList[I]
+            self.ether.placement = floorList[I]
+            itemsPlacementList = [self.tube.placement, self.needle.placement, self.ether.placement]
+            itemsPlacementList = list(set(itemsPlacementList))
 
     def grabItem(self):
 

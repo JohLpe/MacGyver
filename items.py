@@ -18,11 +18,11 @@ class Items:
 
         FLOOR = Floor.defineFloorTiles()
         REMOVAL_LIST = [(80, 520), (120, 520), (440, 40), (480, 40), (520, 40), (480, 80)]
-        for element in REMOVAL_LIST:
-            if element in FLOOR:
-                FLOOR.remove(element)
+        for tile in REMOVAL_LIST:
+            if tile in FLOOR:
+                FLOOR.remove(tile)
         I = random.randrange(0, len(FLOOR))
 
         self.image = image
-        self.placement = FLOOR.pop(I)
+        self.placement = FLOOR[I]
         self.rect = self.image.get_rect()

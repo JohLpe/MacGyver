@@ -28,6 +28,8 @@ def main():
 
     game = Game()
 
+    game.verifyItemsPlacement()
+
     playable = True
 
     while playable:
