@@ -1,4 +1,5 @@
 import pygame
+import sys
 from hero import Hero
 from enemy import Enemy
 from walls import Walls
@@ -61,7 +62,7 @@ class Game:
                 pygame.display.update()
                 pygame.time.wait(1500)
                 playable == False
-                pygame.quit()
+                sys.exit()
         else:
             pass
     
@@ -72,4 +73,4 @@ class Game:
                 pygame.display.update()
                 pygame.time.wait(1500)
                 playable == False
-                pygame.quit()
+                sys.exit()
