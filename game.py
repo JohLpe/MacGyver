@@ -28,20 +28,16 @@ class Game:
     def verifyItemsPlacement(self):
         itemsPlacementList = [self.tube.placement, self.needle.placement, self.ether.placement]
         itemsPlacementList = list(set(itemsPlacementList))
-        if len(itemsPlacementList) == 3:
+        if len(itemsPlacementList) != 3:
+            while len(itemsPlacementList) != 3:
+                del itemsPlacementList
+                self.tube.placement = Items(pygame.image.load('ressource/tube.png'))
+                self.needle.placement = Items(pygame.image.load('ressource/tube.png'))
+                self.ether.placement = Items(pygame.image.load('ressource/tube.png'))
+                itemsPlacementList = [self.tube.placement, self.needle.placement, self.ether.placement]
+                itemsPlacementList = list(set(itemsPlacementList))
+        elif len(itemsPlacementList) == 3:
             pass
-        while len(itemsPlacementList) != 3:
-            floorList = self.floor.defineFloorTiles()
-            removalList = [(80, 520), (120, 520), (440, 40), (480, 40), (520, 40), (480, 80)]
-            for tile in floorList:
-                if tile in removalList:
-                    floorList.remove(tile)
-            I = random.randrange(floorList)
-            self.tube.placement = floorList[I]
-            self.needle.placement = floorList[I]
-            self.ether.placement = floorList[I]
-            itemsPlacementList = [self.tube.placement, self.needle.placement, self.ether.placement]
-            itemsPlacementList = list(set(itemsPlacementList))
 
     def grabItem(self):
 
