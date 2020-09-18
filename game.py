@@ -1,6 +1,5 @@
 import pygame
 import sys
-import random
 from hero import Hero
 from enemy import Enemy
 from walls import Walls
@@ -80,7 +79,7 @@ class Game:
                 sys.exit()
         else:
             pass
-    
+
     def win(self, board, playable):
 
         if self.hero.rect.x == 520 and self.hero.rect.y == 40:

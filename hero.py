@@ -1,6 +1,4 @@
 import pygame
-from floor import Floor
-from walls import Walls
 
 
 class Hero(pygame.sprite.Sprite):

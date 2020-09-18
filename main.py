@@ -1,8 +1,8 @@
 import pygame
-import sys
 from game import Game
 
 pygame.init()
+
 
 def main():
 
@@ -74,6 +74,7 @@ def main():
                         game.makeSyringe()
                 else:
                     pass
+
 
 if __name__ == "__main__":
     main()
