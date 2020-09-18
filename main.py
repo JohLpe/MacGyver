@@ -4,18 +4,6 @@ from game import Game
 
 pygame.init()
 
-pygame.display.set_caption("MacGyver Escape")
-board = pygame.display.set_mode((600, 600))
-
-background = pygame.image.load('ressource/background.png')
-inventory = pygame.image.load('ressource/inventory.png')
-pygame.mixer.music.load('ressource/bgst.mp3')
-pygame.mixer.music.play()
-
-game = Game()
-
-playable = True
-
 def main():
 
     pygame.display.set_caption("MacGyver Escape")
