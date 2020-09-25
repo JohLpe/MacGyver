@@ -1,17 +1,31 @@
 import pygame
 
 
-class Hero(pygame.sprite.Sprite):
+class Hero():
     """Class defining MacGyver's attributes"""
 
     def __init__(self):
-        super().__init__()
+
+        maze = open('maze.txt', 'r')
+        for y, line in enumerate(maze):
+            y = y * 40
+            for x, letter in enumerate(line):
+                if x == 15:
+                    continue
+                if letter == 'A':
+                    x = x * 40
+                    coordinatesY = y
+                    coordinatesX = x
+                    placement = (x, y)
+                else:
+                    pass
+
+        self.image = pygame.image.load('ressource/avatar.png')
         self.step = 40
-        self.image = pygame.image.load('ressource/MacAvatar.png')
         self.rect = self.image.get_rect()
-        self.rect.x = 80
-        self.rect.y = 520
-        self.placement = (self.rect.x, self.rect.y)
+        self.rect.x = coordinatesX
+        self.rect.y = coordinatesY
+        self.placement = placement
 
     def move_right(self):
         self.rect.x += self.step

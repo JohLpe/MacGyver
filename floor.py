@@ -1,37 +1,31 @@
-from walls import Walls
+class Floor():
 
+    def __init__(self, image):
 
-class Floor:
-    """Class defining tiles the hero can walk on"""
-
-    TILES = []
-    MIN_TILE_AXIS_X = 0
-    MAX_TILE_AXIS_X = 600
-    AXIS_X_INTERVAL = 40
-
-    MIN_TILE_AXIS_Y = 0
-    MAX_TILE_AXIS_Y = 600
-    AXIS_Y_INTERVAL = 40
-
-    WALLS = Walls.defineWallTiles()
-
-    def __init__(self):
-        """initialization of a single tile of the board"""
-
-        self.tileAxisXStart = 0
-        self.tileAxisYStart = 0
-        self.tileAxisXEnd = 40
-        self.tileAxisYEnd = 40
-
-    @classmethod
-    def defineFloorTiles(cls):
-
-        floorTiles = []
-
-        for row in range(cls.MIN_TILE_AXIS_X, cls.MAX_TILE_AXIS_X, cls.AXIS_X_INTERVAL):
-            for column in range(cls.MIN_TILE_AXIS_Y, cls.MAX_TILE_AXIS_Y, cls.AXIS_Y_INTERVAL):
-                if (int(row), int(column)) in cls.WALLS:
-                    pass
+        maze = open('maze.txt', 'r')
+        floorCoordinatesList = []
+        for y, line in enumerate(maze):
+            y = y * 40
+            for x, letter in enumerate(line):
+                if x == 15:
+                    continue
+                elif letter == 'F':
+                    x = x * 40
+                    floorCoordinatesList.append((x, y))
+                elif letter == 'A':
+                    x = x * 40
+                    floorCoordinatesList.append((x, y))
+                elif letter == 'G':
+                    x = x * 40
+                    floorCoordinatesList.append((x, y))
+                elif letter == 'U':
+                    x = x * 40
+                    floorCoordinatesList.append((x, y))
+                elif letter == 'D':
+                    x = x * 40
+                    floorCoordinatesList.append((x, y))
                 else:
-                    floorTiles.append((row, column))
-        return floorTiles
+                    continue
+
+        self.image = image
+        self.placement = floorCoordinatesList
