@@ -12,12 +12,10 @@ class Items:
 
         maze = open('maze.txt', 'r')
         hero = Hero()
-        en = Guardian()
-        guardianNearbyTiles = [(en.rect.x + 40, en.rect.y), \
-            (en.rect.x - 40, en.rect.y), (en.rect.x, en.rect.y + 40), (en.rect.x, en.rect.y - 40)]
+        enemy = Guardian()
         stairs = Stairs(pygame.image.load('ressource/emptysquare.png'))
-        removalList = [hero.placement, en.placement, stairs.placementD, stairs.placementU]
-        removalList.extend(guardianNearbyTiles)
+        removalList = [hero.plc, stairs.placementD,
+                       stairs.placementU, enemy.guardian_nearby_tiles()]
         accessibleTiles = []
         for y, line in enumerate(maze):
             y = y * 40
@@ -29,8 +27,7 @@ class Items:
                     accessibleTiles.append((x, y))
         for coordinates in removalList:
             if coordinates in accessibleTiles:
-                accessibleTiles.remove(coordinates)
+                accessibleTiles = accessibleTiles.remove(coordinates)
         i = random.randrange(0, len(accessibleTiles))
-
+        self.plc = accessibleTiles[i]
         self.image = image
-        self.placement = accessibleTiles[i]

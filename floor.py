@@ -2,6 +2,11 @@ class Floor():
 
     def __init__(self, image):
 
+        self.image = image
+
+    @staticmethod
+    def floor_tiles():
+
         maze = open('maze.txt', 'r')
         floorCoordinatesList = []
         for y, line in enumerate(maze):
@@ -25,7 +30,5 @@ class Floor():
                     x = x * 40
                     floorCoordinatesList.append((x, y))
                 else:
-                    continue
-
-        self.image = image
-        self.placement = floorCoordinatesList
+                    pass
+        return floorCoordinatesList

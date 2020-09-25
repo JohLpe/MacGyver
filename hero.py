@@ -14,8 +14,8 @@ class Hero():
                     continue
                 if letter == 'A':
                     x = x * 40
-                    coordinatesY = y
-                    coordinatesX = x
+                    coordY = y
+                    coordX = x
                     placement = (x, y)
                 else:
                     pass
@@ -23,26 +23,26 @@ class Hero():
         self.image = pygame.image.load('ressource/avatar.png')
         self.step = 40
         self.rect = self.image.get_rect()
-        self.rect.x = coordinatesX
-        self.rect.y = coordinatesY
-        self.placement = placement
+        self.rect.x = coordX
+        self.rect.y = coordY
+        self.plc = placement
 
     def move_right(self):
         self.rect.x += self.step
         self.rect.y = self.rect.y
-        self.placement = (self.rect.x, self.rect.y)
+        self.plc = (self.rect.x, self.rect.y)
 
     def move_left(self):
         self.rect.x -= self.step
         self.rect.y = self.rect.y
-        self.placement = (self.rect.x, self.rect.y)
+        self.plc = (self.rect.x, self.rect.y)
 
     def move_up(self):
         self.rect.y -= self.step
         self.rect.x = self.rect.x
-        self.placement = (self.rect.x, self.rect.y)
+        self.plc = (self.rect.x, self.rect.y)
 
     def move_down(self):
         self.rect.y += self.step
         self.rect.x = self.rect.x
-        self.placement = (self.rect.x, self.rect.y)
+        self.plc = (self.rect.x, self.rect.y)

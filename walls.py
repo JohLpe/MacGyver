@@ -1,10 +1,11 @@
-import pygame
-
-
 class Walls():
 
     def __init__(self, image):
 
+        self.image = image
+
+    @staticmethod
+    def wall_tiles():
         maze = open('maze.txt', 'r')
         floorCoordinatesList = []
         for y, line in enumerate(maze):
@@ -17,6 +18,4 @@ class Walls():
                     floorCoordinatesList.append((x, y))
                 else:
                     pass
-
-        self.image = image
-        self.placement = floorCoordinatesList
+        return floorCoordinatesList

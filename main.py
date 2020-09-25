@@ -1,18 +1,18 @@
-import pygame
+import pygame as pg
 from game import Game
 
-pygame.init()
+pg.init()
 
 
 def main():
 
-    pygame.display.set_caption("MacGyver Escape")
-    board = pygame.display.set_mode((600, 600))
+    pg.display.set_caption("MacGyver Escape")
+    board = pg.display.set_mode((600, 600))
 
-    background = pygame.image.load('ressource/void.png')
-    inventory = pygame.image.load('ressource/inventory.png')
-    pygame.mixer.music.load('ressource/bgst.mp3')
-    pygame.mixer.music.play()
+    background = pg.image.load('ressource/void.png')
+    inventory = pg.image.load('ressource/inventory.png')
+    pg.mixer.music.load('ressource/bgst.mp3')
+    pg.mixer.music.play()
 
     game = Game()
     game.verifyItemsPlacement()
@@ -23,65 +23,65 @@ def main():
         """loop to make the game work"""
 
         board.blit(background, (0, 0))
-        for coordinates in game.walls.placement:
+        for coordinates in game.walls.wall_tiles():
             board.blit(game.walls.image, coordinates)
-        for coordinates in game.floor.placement:
+        for coordinates in game.floor.floor_tiles():
             board.blit(game.floor.image, coordinates)
         board.blit(inventory, (210, 562))
         board.blit(game.upstairs.image, game.upstairs.placementU)
         board.blit(game.downstairs.image, game.downstairs.placementD)
-        board.blit(game.enemy.image, game.enemy.placement)
-        board.blit(game.tube.image, game.tube.placement)
-        board.blit(game.needle.image, game.needle.placement)
-        board.blit(game.ether.image, game.ether.placement)
-        board.blit(game.syringe.image, game.syringe.placement)
-        board.blit(game.hero.image, game.hero.placement)
+        board.blit(game.enemy.image, game.enemy.guardian_tile())
+        board.blit(game.tube.image, game.tube.plc)
+        board.blit(game.needle.image, game.needle.plc)
+        board.blit(game.ether.image, game.ether.plc)
+        board.blit(game.syringe.image, game.syringe.plc)
+        board.blit(game.hero.image, game.hero.plc)
 
-        pygame.display.flip()
+        pg.display.flip()
 
-        for event in pygame.event.get():
+        for event in pg.event.get():
 
-            if event.type == pygame.QUIT:
+            if event.type == pg.QUIT:
                 playable = False
-                pygame.quit()
+                pg.quit()
 
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
+            elif event.type == pg.KEYDOWN:
+                if event.key == pg.K_RIGHT:
                     move = game.hero.rect.x + game.hero.step
                     moveTuple = (move, game.hero.rect.y)
-                    if moveTuple in game.floor.placement:
+                    if moveTuple in game.floor.floor_tiles():
                         game.hero.move_right()
                         game.grabItem()
                         game.makeSyringe()
-                        game.stab(board, playable)
-                        game.win(board, playable)
-                elif event.key == pygame.K_LEFT:
+                        game.stab(board, event, playable)
+                        game.win(board, event, playable)
+                elif event.key == pg.K_LEFT:
                     move = game.hero.rect.x - game.hero.step
                     moveTuple = (move, game.hero.rect.y)
-                    if moveTuple in game.floor.placement:
+                    if moveTuple in game.floor.floor_tiles():
                         game.hero.move_left()
                         game.grabItem()
                         game.makeSyringe()
-                        game.stab(board, playable)
-                        game.win(board, playable)
-                elif event.key == pygame.K_UP:
+                        game.stab(board, event, playable)
+                        game.win(board, event, playable)
+                elif event.key == pg.K_UP:
                     move = game.hero.rect.y - game.hero.step
                     moveTuple = (game.hero.rect.x, move)
-                    if moveTuple in game.floor.placement:
+                    if moveTuple in game.floor.floor_tiles():
                         game.hero.move_up()
                         game.grabItem()
                         game.makeSyringe()
-                        game.stab(board, playable)
-                        game.win(board, playable)
-                elif event.key == pygame.K_DOWN:
+                        game.stab(board, event, playable)
+                        game.win(board, event, playable)
+                elif event.key == pg.K_DOWN:
                     move = game.hero.rect.y + game.hero.step
                     moveTuple = (game.hero.rect.x, move)
-                    if moveTuple in game.floor.placement:
+                    if moveTuple in game.floor.floor_tiles():
                         game.hero.move_down()
                         game.grabItem()
                         game.makeSyringe()
-                        game.stab(board, playable)
-                        game.win(board, playable)
+                        game.stab(board, event, playable)
+                        game.win(board, event, playable)
                 else:
                     pass
 
