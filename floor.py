@@ -4,8 +4,7 @@ class Floor():
 
         self.image = image
 
-    @staticmethod
-    def floor_tiles():
+    def floor_tiles(self):
 
         maze = open('maze.txt', 'r')
         floorCoordinatesList = []

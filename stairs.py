@@ -3,8 +3,8 @@ class Stairs():
     def __init__(self, image):
 
         maze = open('maze.txt', 'r')
-        upstairsCoordinates = ()
-        downstairsCoordinates = ()
+        upstairsCoords = ()
+        downstairsCoords = ()
         for y, line in enumerate(maze):
             y = y * 40
             for x, letter in enumerate(line):
@@ -12,21 +12,21 @@ class Stairs():
                     continue
                 if letter == 'U':
                     x = x * 40
-                    coordinatesXU = x
-                    coordinatesYU = y
-                    upstairsCoordinates = (x, y)
+                    coordXU = x
+                    coordYU = y
+                    upstairsCoords = (x, y)
                 elif letter == 'D':
                     x = x * 40
-                    coordinatesXD = x
-                    coordinatesYD = y
-                    downstairsCoordinates = (x, y)
+                    coordXD = x
+                    coordYD = y
+                    downstairsCoords = (x, y)
                 else:
                     pass
 
         self.image = image
-        self.placementXU = coordinatesXU
-        self.placementYU = coordinatesYU
-        self.placementU = upstairsCoordinates
-        self.placementXD = coordinatesXD
-        self.placementYD = coordinatesYD
-        self.placementD = downstairsCoordinates
+        self.plcXU = coordXU
+        self.pcYU = coordYU
+        self.plcU = upstairsCoords
+        self.plcXD = coordXD
+        self.plcYD = coordYD
+        self.plcD = downstairsCoords

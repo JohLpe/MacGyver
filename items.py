@@ -2,7 +2,7 @@ import random
 import pygame
 from stairs import Stairs
 from hero import Hero
-from enemy import Guardian
+from guard import Guardian
 
 
 class Items:
@@ -12,10 +12,10 @@ class Items:
 
         maze = open('maze.txt', 'r')
         hero = Hero()
-        enemy = Guardian()
+        guard = Guardian()
         stairs = Stairs(pygame.image.load('ressource/emptysquare.png'))
-        removalList = [hero.plc, stairs.placementD,
-                       stairs.placementU, enemy.guardian_nearby_tiles()]
+        removalList = [hero.plc, stairs.plcD,
+                       stairs.plcU, guard.guard_nearby_tiles()]
         accessibleTiles = []
         for y, line in enumerate(maze):
             y = y * 40
