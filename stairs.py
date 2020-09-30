@@ -2,21 +2,22 @@ class Stairs():
 
     def __init__(self, image):
 
+        self.sprSize = 40
         maze = open('maze.txt', 'r')
         upstairsCoords = ()
         downstairsCoords = ()
         for y, line in enumerate(maze):
-            y = y * 40
+            y = y * self.sprSize
             for x, letter in enumerate(line):
                 if x == 15:
                     continue
                 if letter == 'U':
-                    x = x * 40
+                    x = x * self.sprSize
                     coordXU = x
                     coordYU = y
                     upstairsCoords = (x, y)
                 elif letter == 'D':
-                    x = x * 40
+                    x = x * self.sprSize
                     coordXD = x
                     coordYD = y
                     downstairsCoords = (x, y)

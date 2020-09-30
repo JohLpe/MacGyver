@@ -10,6 +10,7 @@ class Items:
 
     def __init__(self, image):
 
+        self.sprSize = 40
         maze = open('maze.txt', 'r')
         hero = Hero()
         guard = Guardian()
@@ -18,12 +19,12 @@ class Items:
                        stairs.plcU, guard.guard_nearby_tiles()]
         accessibleTiles = []
         for y, line in enumerate(maze):
-            y = y * 40
+            y = y * self.sprSize
             for x, letter in enumerate(line):
                 if x == 15:
                     continue
                 elif letter == 'F':
-                    x = x * 40
+                    x = x * self.sprSize
                     accessibleTiles.append((x, y))
         for coordinates in removalList:
             if coordinates in accessibleTiles:

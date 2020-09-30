@@ -31,20 +31,20 @@ class Hero():
     def collect(self, board):
 
         if self.plc == board.needle.plc:
-            board.needle.plc = (260, 561)
+            board.needle.plc = board.inventory.invent_tiles()[0]
             self.invent.append('needle')
         elif self.plc == board.tube.plc:
-            board.tube.plc = (215, 561)
+            board.tube.plc = board.inventory.invent_tiles()[1]
             self.invent.append('tube')
         elif self.plc == board.ether.plc:
-            board.ether.plc = (305, 561)
+            board.ether.plc = board.inventory.invent_tiles()[2]
             self.invent.append('ether')
         if len(self.invent) == 3:
             board.tube.image = pg.image.load('ressource/emptysquare.png')
             board.needle.image = pg.image.load('ressource/emptysquare.png')
             board.ether.image = pg.image.load('ressource/emptysquare.png')
             board.syringe.image = pg.image.load('ressource/syringe.png')
-            board.syringe.plc = (350, 561)
+            board.syringe.plc = board.inventory.invent_tiles()[1]
             return True
         else:
             return False

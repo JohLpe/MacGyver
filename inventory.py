@@ -1,24 +1,23 @@
 import pygame as pg
 
 
-class Walls():
+class Inventory():
 
     def __init__(self):
 
         self.sprSize = 40
-        self.image = pg.image.load('ressource/wall.png')
+        self.image = pg.image.load('ressource/inventory.png')
 
-    def wall_tiles(self):
+    def invent_tiles(self):
+
         maze = open('maze.txt', 'r')
-        floorCoordinatesList = []
+        inventoryTiles = []
         for y, line in enumerate(maze):
             y = y * self.sprSize
             for x, letter in enumerate(line):
                 if x == 15:
                     continue
-                if letter == 'W':
+                elif letter == 'I':
                     x = x * self.sprSize
-                    floorCoordinatesList.append((x, y))
-                else:
-                    pass
-        return floorCoordinatesList
+                    inventoryTiles.append((x, y))
+        return inventoryTiles

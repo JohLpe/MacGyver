@@ -4,6 +4,7 @@ from walls import Walls
 from floor import Floor
 from stairs import Stairs
 from guard import Guardian
+from inventory import Inventory
 from hero import Hero
 from inputbox import Input
 
@@ -18,11 +19,12 @@ class Board():
         self.inventory = pg.image.load('ressource/inventory.png')
         self.music = pg.mixer.music.load('ressource/bgst.mp3')
         self.playMusic = pg.mixer.music.play()
-        self.walls = Walls(pg.image.load('ressource/wall.png'))
-        self.floor = Floor(pg.image.load('ressource/floor.png'))
+        self.walls = Walls()
+        self.floor = Floor()
         self.downstairs = Stairs(pg.image.load('ressource/downstairs.png'))
         self.guard = Guardian()
         self.hero = Hero()
+        self.inventory = Inventory()
         self.gameover = pg.image.load('ressource/gameover.png')
         self.escape = pg.image.load('ressource/escape.png')
         self.upstairs = Stairs(pg.image.load('ressource/upstairs.png'))
@@ -53,7 +55,8 @@ class Board():
             self.display.blit(self.walls.image, coordinates)
         for coordinates in self.floor.floor_tiles():
             self.display.blit(self.floor.image, coordinates)
-        self.display.blit(self.inventory, (210, 562))
+        for coordinates in self.inventory.invent_tiles():
+            self.display.blit(self.inventory.image, coordinates)
         self.display.blit(self.upstairs.image, self.upstairs.plcU)
         self.display.blit(self.downstairs.image, self.downstairs.plcD)
         self.display.blit(self.guard.image, self.guard.guard_tile())
