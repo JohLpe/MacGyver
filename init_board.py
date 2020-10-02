@@ -67,14 +67,14 @@ class Board():
         self.display.blit(self.ether.image, self.ether.plc)
         self.display.blit(self.syringe.image, self.syringe.plc)
         if self.hero.plc == self.upstairs.plcU:
-            self.win(board)
+            self.win()
         if self.guard.defeated(board) is False:
-            self.lose(board)
+            self.lose()
         else:
             pass
         pg.display.flip()
 
-    def win(self, board):
+    def win(self):
 
         restart = Input(200, 400, 180, 36, "Press 'r' to restart")
         quitGame = Input(200, 460, 160, 36, "Press 'q' to quit game")
@@ -82,7 +82,7 @@ class Board():
         self.display.blit(restart.textSurface, restart.rect)
         self.display.blit(quitGame.textSurface, quitGame.rect)
 
-    def lose(self, board):
+    def lose(self):
         restart = Input(200, 400, 180, 36, "Press 'r' to restart")
         quitGame = Input(200, 460, 160, 36, "Press 'q' to quit game")
         self.display.blit(self.gameover, (0, 0))
