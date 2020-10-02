@@ -1,6 +1,6 @@
 import pygame as pg
 import sys
-from init_board import Board
+from board import Board
 
 pg.init()
 
@@ -12,7 +12,7 @@ def main():
 
     while playable:
 
-        board.init_board_visual(board)
+        board.init_board(board)
         for event in pg.event.get():
 
             if event.type == pg.QUIT:
