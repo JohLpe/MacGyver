@@ -32,6 +32,7 @@ class Board():
         self.needle = Items(pg.image.load('ressource/needle.png'))
         self.tube = Items(pg.image.load('ressource/tube.png'))
         self.syringe = Items(pg.image.load('ressource/emptysquare.png'))
+        self.endGame = False
 
     def verifyItemsPlacement(self):
 
@@ -68,8 +69,10 @@ class Board():
         self.display.blit(self.syringe.image, self.syringe.plc)
         if self.hero.plc == self.upstairs.plcU:
             self.win()
+            self.endGame = True
         if self.guard.defeated(board) is False:
             self.lose()
+            self.endGame = True
         else:
             pass
         pg.display.flip()

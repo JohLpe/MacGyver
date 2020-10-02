@@ -21,10 +21,11 @@ def main():
 
             elif event.type == pg.KEYDOWN:
                 board.hero.move(board, event)
-                if event.key == pg.K_r:
+                if event.key == pg.K_r and board.endGame:
                     playable = False
                     break
-                if event.key == pg.K_q or event.key == pg.K_a:
+                if event.key == pg.K_q and board.endGame or\
+                   event.key == pg.K_a and board.endGame:
                     sys.exit()
             else:
                 pass
