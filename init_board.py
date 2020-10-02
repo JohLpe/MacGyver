@@ -28,7 +28,7 @@ class Board():
         self.gameover = pg.image.load('ressource/gameover.png')
         self.escape = pg.image.load('ressource/escape.png')
         self.upstairs = Stairs(pg.image.load('ressource/upstairs.png'))
-        self.ether = Items(pg.image.load('ressource/ether.png'),)
+        self.ether = Items(pg.image.load('ressource/ether.png'))
         self.needle = Items(pg.image.load('ressource/needle.png'))
         self.tube = Items(pg.image.load('ressource/tube.png'))
         self.syringe = Items(pg.image.load('ressource/emptysquare.png'))
