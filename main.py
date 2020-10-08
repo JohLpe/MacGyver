@@ -13,6 +13,7 @@ def main():
     while playable:
 
         board.init_board(board)
+
         for event in pg.event.get():
 
             if event.type == pg.QUIT:
