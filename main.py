@@ -12,7 +12,8 @@ def main():
 
     while playable:
 
-        board.init_board(board)
+        board.init_board()
+        board.verifyItemsPlacement()
 
         for event in pg.event.get():
 
@@ -21,7 +22,14 @@ def main():
                 pg.quit()
 
             elif event.type == pg.KEYDOWN:
-                board.hero.move(board, event)
+                if event.key == pg.K_RIGHT:
+                    board.hero.move_right(board)
+                if event.key == pg.K_LEFT:
+                    board.hero.move_left(board)
+                if event.key == pg.K_UP:
+                    board.hero.move_up(board)
+                if event.key == pg.K_DOWN:
+                    board.hero.move_down(board)
                 if event.key == pg.K_r and board.endGame:
                     playable = False
                     break
