@@ -31,14 +31,12 @@ def main():
                 if event.key == pg.K_DOWN:
                     board.hero.move_down(board)
                 if event.key == pg.K_r and board.endGame:
-                    playable = False
-                    break
+                    main()
                 if event.key == pg.K_q and board.endGame or\
                    event.key == pg.K_a and board.endGame:
                     sys.exit()
             else:
                 pass
-    main()
 
 
 if __name__ == "__main__":
