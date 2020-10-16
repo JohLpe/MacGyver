@@ -8,12 +8,12 @@ pg.init()
 def main():
 
     board = Board()
+    board.verifyItemsPlacement()
     playable = True
 
     while playable:
 
         board.init_board()
-        board.verifyItemsPlacement()
 
         for event in pg.event.get():
 
