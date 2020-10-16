@@ -72,9 +72,8 @@ def hero_placement():
             if letter == 'A':
                 coordX = x * sprSize
                 coordY = y
-                plc = (x, y)
                 break
-    return coordX, coordY, plc
+    return coordX, coordY
 
 
 def guardian_nearby_tiles():
