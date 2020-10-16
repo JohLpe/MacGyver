@@ -46,19 +46,18 @@ class Board():
         for coords in letter_to_sprite('D'):
             self.display.blit(pg.image.load('ressource/dstairs.png'), coords)
         if self.hero.collectAll is False:
-            self.display.blit(pg.image.load('ressource/needle.png'), self.needle)
+            self.display.blit(pg.image.load('ressource/needle.png'),
+                              self.needle)
             self.display.blit(pg.image.load('ressource/tube.png'), self.tube)
             self.display.blit(pg.image.load('ressource/ether.png'), self.ether)
-            self.display.blit(pg.image.load('ressource/empty.png'), self.syringe)
         elif self.hero.collectAll:
-            self.display.blit(pg.image.load('ressource/empty.png'), self.needle)
-            self.display.blit(pg.image.load('ressource/empty.png'), self.tube)
-            self.display.blit(pg.image.load('ressource/empty.png'), self.ether)
-            self.display.blit(pg.image.load('ressource/syringe.png'), self.syringe)
+            self.display.blit(pg.image.load('ressource/syringe.png'),
+                              self.syringe)
         for coords in self.guard.plc:
             self.display.blit(self.guard.image, coords)
         self.display.blit(self.hero.image, self.hero.plc)
-        if self.hero.plc in self.guard.plcArea and self.hero.collectAll is False:
+        if self.hero.plc in self.guard.plcArea and\
+                self.hero.collectAll is False:
             self.display.blit(pg.image.load('ressource/gameover.png'), (0, 0))
             self.endGame = True
         if self.hero.plc in letter_to_sprite('U'):
