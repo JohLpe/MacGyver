@@ -71,7 +71,7 @@ def hero_placement():
                 continue
             if letter == 'A':
                 coordX = x * sprSize
-                coordY = y
+                coordY = y * sprSize
                 break
     return coordX, coordY
 
