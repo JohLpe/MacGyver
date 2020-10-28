@@ -8,9 +8,10 @@ Careful! Failing to grab all of the items will result in the hero's capture.
 
 This game works with the arrow keys to move around the maze. Items will be retrieved upon stepping on them.
 
+#### How to install:
 
-- Environement virtuel et installer Pygame dans cet environement virtuel
+Use command in terminal:
 
-- Créer un fichier requirements.txt (pip freeze > requirements.txt )
+$ pip install -r requirements.txt
 
-- Installer flake8
+Run script "main.py" to play the game.

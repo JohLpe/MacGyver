@@ -6,9 +6,10 @@ pg.init()
 
 
 def main():
+    """Main code to run the game."""
 
     board = Board()
-    board.verifyItemsPlacement()
+    board.verify_items_placement()
     playable = True
 
     while playable:
@@ -30,10 +31,10 @@ def main():
                     board.hero.move_up(board)
                 if event.key == pg.K_DOWN:
                     board.hero.move_down(board)
-                if event.key == pg.K_r and board.endGame:
+                if event.key == pg.K_r and board.end_game:
                     main()
-                if event.key == pg.K_q and board.endGame or\
-                   event.key == pg.K_a and board.endGame:
+                if event.key == pg.K_q and board.end_game or\
+                   event.key == pg.K_a and board.end_game:
                     sys.exit()
             else:
                 pass

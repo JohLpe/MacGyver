@@ -3,9 +3,10 @@ from maze_reader import *
 
 
 class Hero():
-    """Class defining MacGyver's attributes"""
+    """Class defining MacGyver's attributes."""
 
     def __init__(self):
+        """Class constructor."""
 
         self.image = pg.image.load('ressource/avatar.png')
         self.x = hero_placement()[0]
@@ -13,10 +14,16 @@ class Hero():
         self.plc = (self.x, self.y)
         self.invent = []
         self.step = 40
-        self.playArea = letter_to_sprite(['F', 'A', 'U', 'D', 'G'])
-        self.collectAll = False
+        self.play_area = letter_to_sprite(['F', 'A', 'U', 'D', 'G'])
+        self.collect_all = False
 
     def collect(self, board):
+        """Changes items placements.
+
+        If player encounters an item while moving, item will
+        be moved to the player's inventory.
+
+        """
 
         if self.plc == board.needle:
             board.needle = letter_to_sprite('I')[0]
@@ -28,34 +35,42 @@ class Hero():
             board.ether = letter_to_sprite('I')[2]
             self.invent.append('ether')
         if len(self.invent) == 3:
-            self.collectAll = True
+            self.collect_all = True
             board.guard.defeat(board)
         else:
             pass
 
     def move_right(self, board):
-        if ((self.x + self.step), self.y) in self.playArea:
+        """Moves player on the X axis, right direction."""
+
+        if ((self.x + self.step), self.y) in self.play_area:
             self.x += self.step
             self.y = self.y
             self.plc = (self.x, self.y)
             self.collect(board)
 
     def move_left(self, board):
-        if ((self.x - self.step), self.y) in self.playArea:
+        """Moves player on the X axis, left direction."""
+
+        if ((self.x - self.step), self.y) in self.play_area:
             self.x -= self.step
             self.y = self.y
             self.plc = (self.x, self.y)
             self.collect(board)
 
     def move_up(self, board):
-        if (self.x, (self.y - self.step)) in self.playArea:
+        """Moves player on the Y axis, up direction."""
+
+        if (self.x, (self.y - self.step)) in self.play_area:
             self.y -= self.step
             self.x = self.x
             self.plc = (self.x, self.y)
             self.collect(board)
 
     def move_down(self, board):
-        if (self.x, (self.y + self.step)) in self.playArea:
+        """Moves player on the Y axis, down direction."""
+
+        if (self.x, (self.y + self.step)) in self.play_area:
             self.y += self.step
             self.x = self.x
             self.plc = (self.x, self.y)
