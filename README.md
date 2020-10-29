@@ -1,17 +1,33 @@
-# MacGyver
+# MacGyver Escape
 
-This game consists in fetching different items to neutralize the guardian. The guardian watches over the only way to make it out of the maze.
+You play MacGyver who's stuck in a labyrinth.
+In order to win, you have to collect 3 different items to neutralize the guardian of the labyrinth.
+Reach the stairs behind the guardian to win the game.
 
-Careful! Failing to grab all of the items will result in the hero's capture.
+#### Requirement:
 
-#### Instructions:
-
-This game works with the arrow keys to move around the maze. Items will be retrieved upon stepping on them.
+This program requires python 3.8.2 and pygame 1.9.6
 
 #### How to install:
 
-Use command in terminal:
+git clone https://github.com/JohLpe/MacGyver.git
+cd MacGyver
 
-$ pip install -r requirements.txt
+On Windows:
+py -m venv env
+source env/Scripts/activate
 
-Run script "main.py" to play the game.
+On MacOS and Linux:
+python3 -m venv env
+source env/bin/activate
+
+$ pip3 install -r requirements.txt
+
+#### How to launch the game:
+
+python main.py
+
+#### How to play:
+
+Use the arrow keys of your keyboard to move Angus across the labyrinth.
+Items will be automatically collected upon stepping on them.
